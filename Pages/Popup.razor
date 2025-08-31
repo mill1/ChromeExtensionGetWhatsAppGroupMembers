@@ -1,4 +1,15 @@
 ﻿@page "/popup.html"
 @inherits BasePage
 
-<h1>My popup page</h1>
+@inject IJSRuntime JSRuntime
+
+<h2>Test calling js from popup</h2>
+
+<button @onclick="CallHelloWorld">Click me</button>
+
+@code {
+    private async Task CallHelloWorld()
+    {
+        await JSRuntime.InvokeVoidAsync("HelloWorld");
+    }
+}
