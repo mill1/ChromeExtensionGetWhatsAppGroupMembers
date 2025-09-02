@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\hello.js" />
+    <Content Remove="wwwroot\content\GetMembers.js" />
+    <Content Remove="wwwroot\interop.js" />
   </ItemGroup>
 
   <ItemGroup>

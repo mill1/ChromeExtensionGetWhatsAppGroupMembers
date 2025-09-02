@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Blazor.BrowserExtension;
+﻿using Blazor.BrowserExtension;
 using ChromeExtensionGetWhatsAppGroupMembers;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.UseBrowserExtension(browserExtension =>

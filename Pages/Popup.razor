@@ -3,13 +3,47 @@
 
 @inject IJSRuntime JSRuntime
 
-<h2>Test calling js from popup</h2>
+<h2>Get Members from Background Script</h2>
+<button @onclick="GetMembers">Get Members</button>
 
+<h2>Test calling js from popup</h2>
 <button @onclick="CallHelloWorld">Click me</button>
 
+<ul>
+    @foreach (var member in Members)
+    {
+        <li>@member</li>
+    }
+</ul>
+
 @code {
+    private List<string> Members = new();
+    private bool _handlerRegistered;
+
     private async Task CallHelloWorld()
     {
         await JSRuntime.InvokeVoidAsync("HelloWorld");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !_handlerRegistered)
+        {
+            var objRef = DotNetObjectReference.Create(this);
+            await JSRuntime.InvokeVoidAsync("registerMembersHandler", objRef);
+            _handlerRegistered = true;
+        }
+    }
+
+    private async Task GetMembers()
+    {
+        await JSRuntime.InvokeVoidAsync("chrome.runtime.sendMessage", new { type = "GET_MEMBERS" });
+    }
+
+    [JSInvokable]
+    public void OnMembersReceived(string[] members)
+    {
+        Members = members.ToList();
+        StateHasChanged();
     }
 }
