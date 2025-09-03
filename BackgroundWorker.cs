@@ -44,7 +44,7 @@ public partial class BackgroundWorker : BackgroundWorkerBase
             {
                 await WebExtensions.Scripting.ExecuteScript(new()
                 {
-                    Target = new InjectionTarget { TabId = (int)activeTab.Id },
+                    Target = new InjectionTarget { TabId = activeTab.Id ?? -1 },
                     Files = new[] { "content/GetMembers.js" }
                 });
             }

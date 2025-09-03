@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Get WhatsApp Group Members",
   "description": "Chrome extension that lists the members (contacts) of a WhatsApp group.",
-  "version": "0.0.1",  
+  "version": "0.0.1",
   "action": {
     "default_popup": "popup.html"
   },
@@ -17,7 +17,9 @@
   "host_permissions": [
     "https://web.whatsapp.com/*"
   ],
-
+  "background": {
+    "service_worker": "backgroundWorker.js"
+  },
   "content_security_policy": {
     "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
   },

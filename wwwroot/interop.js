@@ -5,7 +5,12 @@ window.registerMembersHandler = (dotnetHelper) => {
 
         console.log("Received message:", message);
 
-        if (message.type === "GROUP_MEMBERS") {
+        //console.log("Message type:", message.type);
+
+        if (message.type === "MEMBERS_RESULT") {
+
+            console.log("Invoking .NET method with members:", message.members);
+
             dotnetHelper.invokeMethodAsync("OnMembersReceived", message.members);
         }
     });
