@@ -3,6 +3,8 @@ using ChromeExtensionGetWhatsAppGroupMembers;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
+//namespace ChromeExtensionGetWhatsAppGroupMembers;
+
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.UseBrowserExtension(browserExtension =>
 {

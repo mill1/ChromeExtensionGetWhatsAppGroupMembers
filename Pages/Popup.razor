@@ -9,7 +9,7 @@
 
 @if (Members.Any())
 {
-    <div>The result have copied to the clipboard!</div>
+    <div>The results have been copied to the clipboard!</div>
     <p />
     <table class="members-table">
         <thead>
@@ -44,7 +44,7 @@
 
     private async Task GetMembers()
     {
-        await JSRuntime.InvokeVoidAsync("chrome.runtime.sendMessage", new { type = "GET_MEMBERS" });
+        await JSRuntime.InvokeVoidAsync("chrome.runtime.sendMessage", "GET_MEMBERS");
     }
 
     [JSInvokable]

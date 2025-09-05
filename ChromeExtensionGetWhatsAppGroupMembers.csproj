@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>ChromeExtensionGetWhatsAppGroupMembers</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\content\GetMembers.js" />
+    <Content Remove="wwwroot\GetMembers.js" />
     <Content Remove="wwwroot\interop.js" />
   </ItemGroup>
 
@@ -18,9 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\index.html">
+    <Compile Update="wwwroot\BackgroundWorker.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="wwwroot\manifest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

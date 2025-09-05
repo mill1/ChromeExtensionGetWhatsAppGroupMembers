@@ -26,7 +26,6 @@
         if (groupName) {
             members.unshift(groupName);
         }
-
     }
     else {
         console.log("Single chat selected");                
