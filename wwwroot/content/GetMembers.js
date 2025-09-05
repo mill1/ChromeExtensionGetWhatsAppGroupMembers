@@ -1,26 +1,51 @@
 ﻿(function () {
-    console.log("################## GetMembers.js injected");
 
-    const headerTitle = document.querySelector("header span[title]")?.getAttribute("title") || "";
     let members = [];
+    const selectedChat = document.querySelector('div[aria-selected="true"]');
+
+    if (!selectedChat) {
+        members = ["No chat selected"];
+        chrome.runtime.sendMessage({ type: "MEMBERS_RESULT", members });
+        return;
+    }
+
+    const groupName = selectedChat.querySelector('span[title]').getAttribute('title');
+    
+    // What kind of chat is it?
+    const headerTitle = document.querySelector("header span[title]")?.getAttribute("title") || "";
 
     if (headerTitle.includes(",")) {
-        // Case: header shows participants instead of a group name
+        console.log("Group chat selected");
+
+        // split participants
         members = headerTitle.split(",").map(m => m.trim());
-    } else {
-        // Case: header is an actual group name -> scrape from sidebar
-        const sidebar = document.querySelector('div[role="dialog"], aside[role="presentation"]');
-        if (sidebar) {
-            members = [...sidebar.querySelectorAll('span[dir="auto"][title]')]
-                .map(el => el.getAttribute("title"))
-                .filter(name =>
-                    name &&
-                    name !== headerTitle &&
-                    !name.toLowerCase().includes("aan het typen")
-                );
+
+        // prepend group name to the list
+        if (groupName) {
+            members.unshift(groupName);
         }
+
+    }
+    else {
+        console.log("Single chat selected");                
+        members = [groupName];
     }
 
     console.log("Extracted members:", members);
+
+    function copyToClipboard(text) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        console.log("✅ Members copied to clipboard for your pasting pleasure.");
+    }
+
+    if (members.length > 0) {
+        copyToClipboard(members.map(m => `"${m}"`).join("\n"));
+    }
+
     chrome.runtime.sendMessage({ type: "MEMBERS_RESULT", members });
 })();
