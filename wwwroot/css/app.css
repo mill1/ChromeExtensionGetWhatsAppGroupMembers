@@ -2,7 +2,7 @@
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     width: 400px;
     height: 400px;
-    margin: 10px;
+    margin: 0;
     padding: 0;
 }
 
@@ -12,6 +12,12 @@ h1:focus {
 
 a, .btn-link {
     color: #0071c1;
+}
+
+.popup-container {
+    padding: 20px 20px 20px 20px;
+    width: 400px;
+    box-sizing: border-box;
 }
 
 .btn-primary {
@@ -103,7 +109,7 @@ a, .btn-link {
 }
 
 .members-table {
-    width: calc(100% - 25px); /* shrink a bit */
+    width: calc(100%);
     border-collapse: collapse;
     font-size: 14px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
@@ -160,6 +166,42 @@ button {
     button:focus {
         outline: none;
         box-shadow: 0 0 0 2px rgba(37,211,102,0.5);
+    }
+.status-message {
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.status-message.info {
+    background: #eef6ff;
+    color: #004085;
+    border: 1px solid #b6d4fe;
+}
+
+.status-message.warning {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.status-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.members-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+    .members-table th,
+    .members-table td {
+        border: 1px solid #ddd;
+        padding: 6px;
     }
 
 

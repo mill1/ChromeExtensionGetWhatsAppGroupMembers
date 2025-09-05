@@ -3,30 +3,54 @@
 
 @inject IJSRuntime JSRuntime
 
+<div class="popup-container">
 <button @onclick="GetMembers">Get chat members</button>
 
 <p />
 
-@if (Members.Any())
+@if (!Members.Any())
 {
-    <div>The results have been copied to the clipboard!</div>
-    <p />
-    <table class="members-table">
-        <thead>
-            <tr>
-                <th>@Members[0]</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var member in Members.Skip(1))
-            {
-                <tr>
-                    <td>@member</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div id="blazor-error-ui">No members found!</div>
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
 }
+else
+{
+    @if (!Members.Any())
+    {
+        <div class="status-message info">No members found!</div>
+    }
+    else if (Members[0] == "Please select a chat.")
+    {
+        <div class="status-message warning">@Members[0]</div>
+    }
+    else
+    {
+        <div class="status-message success">
+            The results have been copied to the clipboard!
+        </div>
+        <p />
+        <table class="members-table">
+            <thead>
+                <tr>
+                    <th>@Members[0]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var member in Members.Skip(1))
+                {
+                    <tr>
+                        <td>@member</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+</div>
 
 @code {
     private List<string> Members = new();
