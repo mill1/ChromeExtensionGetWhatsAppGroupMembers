@@ -5,8 +5,6 @@ window.registerMembersHandler = (dotnetHelper) => {
 
         console.log("Received message:", message);
 
-        //console.log("Message type:", message.type);
-
         if (message.type === "MEMBERS_RESULT") {
 
             console.log("Invoking .NET method with members:", message.members);
