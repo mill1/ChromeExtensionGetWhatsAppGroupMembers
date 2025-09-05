@@ -1,5 +1,7 @@
 ﻿(function () {
 
+    console.log("GetMembers,s called");
+
     let members = [];
     const selectedChat = document.querySelector('div[aria-selected="true"]');
 
