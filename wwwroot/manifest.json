@@ -4,7 +4,10 @@
   "description": "Chrome extension that lists the members (contacts) of a WhatsApp group.",
   "version": "0.0.1",
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "96": "icons/favicon96.png"  
+    }
   },
   "options_ui": {
     "page": "options.html",

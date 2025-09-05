@@ -1,7 +1,7 @@
 ﻿html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     width: 400px;
-    height: 600px;
+    height: 400px;
     margin: 10px;
     padding: 0;
 }
@@ -98,6 +98,38 @@ a, .btn-link {
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
+.loading-progress-text:after {
+    content: var(--blazor-load-percentage-text, "Loading");
+}
+
+.members-table {
+    width: calc(100% - 25px); /* shrink a bit */
+    border-collapse: collapse;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+    .members-table thead th {
+        background-color: #333;
+        color: #fff;
+        text-align: left;
+        padding: 8px 12px;
+        font-weight: bold;
+        font-size: 15px;
     }
+
+    .members-table tbody td {
+        padding: 8px 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .members-table tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .members-table tbody tr:hover {
+        background-color: #e6f2ff;
+    }
+

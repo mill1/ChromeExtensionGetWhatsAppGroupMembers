@@ -4,7 +4,7 @@
     const selectedChat = document.querySelector('div[aria-selected="true"]');
 
     if (!selectedChat) {
-        members = ["No chat selected"];
+        members = ["Please select a chat."];
         chrome.runtime.sendMessage({ type: "MEMBERS_RESULT", members });
         return;
     }

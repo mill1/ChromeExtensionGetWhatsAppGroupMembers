@@ -3,27 +3,34 @@
 
 @inject IJSRuntime JSRuntime
 
-<h2>Get Members from Background Script</h2>
-<button @onclick="GetMembers">Get Members</button>
+<button @onclick="GetMembers">Get chat members</button>
 
-<h2>Test calling js from popup</h2>
-<button @onclick="CallHelloWorld">Click me</button>
+<p />
 
-<ul>
-    @foreach (var member in Members)
-    {
-        <li>@member</li>
-    }
-</ul>
+@if (Members.Any())
+{
+    <div>The result have copied to the clipboard!</div>
+    <p />
+    <table class="members-table">
+        <thead>
+            <tr>
+                <th>@Members[0]</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var member in Members.Skip(1))
+            {
+                <tr>
+                    <td>@member</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
 @code {
     private List<string> Members = new();
     private bool _handlerRegistered;
-
-    private async Task CallHelloWorld()
-    {
-        await JSRuntime.InvokeVoidAsync("HelloWorld");
-    }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
