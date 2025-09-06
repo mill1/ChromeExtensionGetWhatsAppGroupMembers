@@ -1,4 +1,86 @@
 ﻿@page "/index.html"
 @inherits IndexPage
 
-<h1>Hello, from Blazor.</h1>
+<div class="page-container">
+
+<div class="highlight-banner">
+    🚨 Open <a href="https://web.whatsapp.com/" target="_self">WhatsApp Web</a>
+    to use<br/>this awesome extension 🚨
+</div>
+
+<h1>Get WhatsApp Group Members</h1>
+
+<p>
+    A Chrome extension that lists the members (contacts) of a WhatsApp group.<br>
+    Built with <strong>Blazor WebAssembly</strong> and JavaScript interop.
+</p>
+Inspired by <a href="https://www.youtube.com/watch?v=oyH3G_ntpKk" target="_blank">this video</a>.
+
+<hr>
+
+<h2>🚀 Features</h2>
+<ul>
+    <li>Extracts and displays all members of a WhatsApp group directly from WhatsApp Web.</li>
+    <li>Clean, Blazor-based popup UI.</li>
+    <li>No server or external API required — runs fully client-side.</li>
+</ul>
+
+<hr>
+
+<h2>🧰 Requirements</h2>
+<ul>
+    <li><strong>.NET 8.0 SDK</strong> (or later)</li>
+    <li><strong>Chrome</strong> (or any Chromium-based browser)</li>
+</ul>
+
+<hr>
+
+<h2>⚙️ Build</h2>
+<p><code>dotnet build</code></p>
+<p>This will create the output in the <code>bin/Debug/net9.0/</code> folder.</p>
+
+<hr>
+
+<h2>🦉 Install in Chrome</h2>
+<ol>
+    <li>Open Chrome and go to: <code>chrome://extensions/</code></li>
+    <li>Enable <strong>Developer mode</strong> (toggle in top right).</li>
+    <li>Click <strong>Load unpacked</strong>.</li>
+    <li>Select the <code>bin/Debug/net9.0/browserextension/</code> folder (or the corresponding Release build path).</li>
+    <li>The extension will appear in your Chrome toolbar.</li>
+</ol>
+
+<hr>
+
+<h2>▶️ Usage</h2>
+<ol>
+    <li>Open WhatsApp Web.</li>
+    <li>Log in if necessary.</li>
+    <li>Navigate to a group chat.</li>
+    <li>Open the extension popup.</li>
+    <li>Click the <strong>Get chat members</strong> button.</li>
+    <li>The list of group members will be displayed and put on the clipboard.</li>
+</ol>
+
+<hr>
+
+<h2>⚠️ Notes</h2>
+<ul>
+    <li>WhatsApp Web updates its DOM frequently — if the extension stops working, selectors in <code>GetMembers.js</code> may need updating.</li>
+    <li>This project is for <strong>recreational purposes</strong> only.</li>
+</ul>
+
+<hr>
+
+<h2>🛠️ Tech Stack</h2>
+<ul>
+    <li>Blazor WebAssembly</li>
+    <li>Chrome Extensions API (Manifest V3)</li>
+    <li>JavaScript interop</li>
+</ul>
+
+<hr>
+
+<h2>📄 License</h2>
+<p>MIT</p>
+</div>
