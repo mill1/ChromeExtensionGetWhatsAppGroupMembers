@@ -34,7 +34,9 @@
                     @foreach (var member in Members.Skip(1))
                     {
                         <tr>
-                            <td>@member</td>
+                            <td @onclick="() => ShowMember(member)" style="cursor: pointer;">
+                                @member
+                            </td>
                         </tr>
                     }
                 </tbody>
@@ -65,11 +67,16 @@
         StateHasChanged();
     }
 
-
     [JSInvokable]
     public void OnMembersReceived(string[] members)
     {
         Members = members.ToList();
         StateHasChanged();
     }
+
+    private async void ShowMember(string member)
+    {
+        await JSRuntime.InvokeVoidAsync("openMemberWindow", member);
+    }
+
 }
