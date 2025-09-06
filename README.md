@@ -11,7 +11,7 @@ Inspired by [this video](https://www.youtube.com/watch?v=oyH3G_ntpKk).
 
 *   Extracts and displays all members of a WhatsApp group directly from WhatsApp Web.
 *   Clean, Blazor-based popup UI.
-*   No server or external API required � runs fully client-side.
+*   No server or external API required - runs fully client-side.
 
 - - -
 
@@ -26,33 +26,34 @@ Inspired by [this video](https://www.youtube.com/watch?v=oyH3G_ntpKk).
 
 dotnet build
 
-This will create the output in the bin/Debug/net8.0/ folder.
+This will create the output in the bin/Debug/net9.0/ folder.
 
 - - -
 
 **🧩 Install in Chrome**
 
-1.  Open Chrome and go to:
-2.  chrome://extensions/
-3.  Enable **Developer mode** (toggle in top right).
-4.  Click **Load unpacked**.
-5.  Select the bin/Debug/net9.0/browserextension/ folder (or the corresponding Release build path).
-6.  The extension will appear in your Chrome toolbar.
+1.  Open Chrome and go to: chrome://extensions/
+2.  Enable **Developer mode** (toggle in top right).
+3.  Click **Load unpacked**.
+4.  Select the bin/Debug/net9.0/browserextension/ folder (or the corresponding Release build path).
+5.  The extension will appear in your Chrome toolbar.
 
 - - -
 
 **▶️ Usage**
 
-1.  Open WhatsApp Web.
-2.  Navigate to a group chat.
-3.  Open the extension popup.
-4.  The list of group members will be displayed.
+1.  Open [WhatsApp Web](https://web.whatsapp.com/).
+2.  Ensure you are logged in.
+3.  Navigate to a group chat.
+4.  Open the extension popup.
+5.  Click button 'Get chat members'.
+6.  The list of group members is displayed and put on the clipboard.
 
 - - -
 
 **⚠️ Notes**
 
-*   WhatsApp Web updates its DOM frequently � if the extension stops working, selectors in GetMembers.js may need updating.
+*   WhatsApp Web updates its DOM frequently - if the extension stops working, selectors in GetMembers.js may need updating.
 *   This project is for **recreational purposes**.
 
 - - -

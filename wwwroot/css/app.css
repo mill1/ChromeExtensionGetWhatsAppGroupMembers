@@ -1,7 +1,7 @@
 ﻿html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    width: 400px;
-    height: 400px;
+    width: 360px;
+    height: 192px;
     margin: 0;
     padding: 0;
 }
@@ -16,9 +16,50 @@ a, .btn-link {
 
 .popup-container {
     padding: 20px 20px 20px 20px;
-    width: 400px;
+    width: 360px;
     box-sizing: border-box;
 }
+
+.popup-container button {
+    display: flex; /* allow icon + text alignment */
+    align-items: center; /* vertically center content */
+    justify-content: center; /* center text/icon */
+    gap: 8px; /* spacing between icon and text */
+
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.popup-container button:hover {
+    background: linear-gradient(135deg, #1ebe5d, #0d6f62);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.popup-container button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.popup-container button::before {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url("/icons/favicon96.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 
 .btn-primary {
     color: #fff;
@@ -71,9 +112,9 @@ a, .btn-link {
     color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
-    }
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
 
 .loading-progress {
     position: relative;
@@ -83,19 +124,19 @@ a, .btn-link {
     margin: 20vh auto 1rem auto;
 }
 
-    .loading-progress circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
-    }
+.loading-progress circle {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 0.6rem;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+}
 
-        .loading-progress circle:last-child {
-            stroke: #26b050;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
+.loading-progress circle:last-child {
+    stroke: #26b050;
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.05s ease-in-out;
+}
 
 .loading-progress-text {
     position: absolute;
@@ -109,35 +150,41 @@ a, .btn-link {
 }
 
 .members-table {
-    width: calc(100%);
     border-collapse: collapse;
-    font-size: 14px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    width: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     border-radius: 6px;
     overflow: hidden;
 }
 
-    .members-table thead th {
-        background-color: #333;
-        color: #fff;
-        text-align: left;
-        padding: 8px 12px;
-        font-weight: bold;
-        font-size: 15px;
-    }
+.members-table thead th {
+    background-color: #128C7E; /* WhatsApp dark green */
+    color: #fff;
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: bold;
+    font-size: 15px;
+}
 
-    .members-table tbody td {
-        padding: 8px 12px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .members-table tbody tr:nth-child(odd) {
+.members-table tbody tr:nth-child(odd) {
         background-color: #f9f9f9;
     }
 
-    .members-table tbody tr:hover {
-        background-color: #e6f2ff;
-    }
+.members-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.members-table tbody tr {
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    cursor: default;
+}
+
+.members-table tbody tr:hover {
+    background-color: #f5fdf9; /* subtle WhatsApp-green tint */
+    transform: translateX(2px); /* slight nudge on hover */
+}
 
 button {
     display: inline-block;
@@ -153,20 +200,21 @@ button {
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-    button:hover {
-        background-color: #20b958; /* darker green */
-        transform: translateY(-1px); /* subtle lift */
-    }
+button:hover {
+    background-color: #20b958; /* darker green */
+    transform: translateY(-1px); /* subtle lift */
+}
 
-    button:active {
-        background-color: #1a9e4b;
-        transform: translateY(0); /* push back */
-    }
+button:active {
+    background-color: #1a9e4b;
+    transform: translateY(0); /* push back */
+}
 
-    button:focus {
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(37,211,102,0.5);
-    }
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37,211,102,0.5);
+}
+
 .status-message {
     padding: 8px 12px;
     border-radius: 6px;
@@ -198,10 +246,8 @@ button {
     margin-top: 8px;
 }
 
-    .members-table th,
-    .members-table td {
-        border: 1px solid #ddd;
-        padding: 6px;
-    }
-
-
+.members-table th,
+.members-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+}

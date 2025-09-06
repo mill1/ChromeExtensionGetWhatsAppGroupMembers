@@ -11,7 +11,7 @@ public partial class BackgroundWorker : BackgroundWorkerBase
     [BackgroundWorkerMain]
     public override void Main()
     {
-        Console.WriteLine("Background worker loaded!");
+        Console.WriteLine("Background worker loaded");
 
         // Register method instead of inline async lambda
         WebExtensions.Runtime.OnInstalled.AddListener(OnInstalledHandler);

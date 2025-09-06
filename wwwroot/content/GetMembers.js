@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    console.log("GetMembers,s called");
+    console.log("GetMembers() is called");
 
     let members = [];
     const selectedChat = document.querySelector('div[aria-selected="true"]');
@@ -17,8 +17,6 @@
     const headerTitle = document.querySelector("header span[title]")?.getAttribute("title") || "";
 
     if (headerTitle.includes(",")) {
-        console.log("Group chat selected");
-
         // split participants
         members = headerTitle.split(",").map(m => m.trim());
 
@@ -28,7 +26,6 @@
         }
     }
     else {
-        console.log("Single chat selected");                
         members = [groupName];
     }
 
